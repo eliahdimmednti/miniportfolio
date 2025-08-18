@@ -6,13 +6,13 @@ body {
 }
 
 a:link {
-    color: black;
+    color: white;
     text-decoration: none;
   }
   
   /* visited link */
 a:visited {
-    color: black;
+    color: white;
 }
   
   /* mouse over link */
@@ -23,15 +23,29 @@ a:hover {
 h1 {
     text-align: center;
     font-size: 50px;
-    border: 2px solid black;
-    background-color: black;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+    /* background-color: black; */
+    /* background-image: url(images/purple.jpg); */
     margin-top: 0px;
     font-size: 50px;
-    color: white;
+    background: linear-gradient(to right, black, black);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 15px;
+    font-family: Copperplate, Papyrus, fantasy;
+    letter-spacing: 2px;
+    
 }
 
+/* Project Boxes */
+
 .work .project {
-    border: 5px solid black;
+    background-image: url(images/purple.jpg);
+    color: white;
     background-color: #9358ac;
     width: 30%;
     padding-right: 3%;
@@ -40,8 +54,33 @@ h1 {
     margin: 1%;
     height: 300px;
     overflow: hidden;
+    text-align: center;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
 }
 
-.work .project image {
-    
+.work .project img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+
+
+/* About Page */
+
+.about h2 {
+    font-size: 50px;
+    text-shadow: 2px 2px 4px #000000;
+    color: white;
+}
+
+
+.about p {
+    width: 30%;
+    background-image: url(images/purple.jpg);
+    color: white;
+    padding: 10px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
 }
