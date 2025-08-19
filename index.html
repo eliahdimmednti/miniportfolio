@@ -7,8 +7,15 @@
     <title>Eliah's Mini Portfolio</title>
 </head>
 <body>
-    <h1 class="title"><a href="about.html">Eliah Dimmed</a></h1>
-    
+    <header class="site-header">
+        <h1 class="title">Eliah Dimmed</h1>
+        <nav class="site-nav" aria-label="Primary">
+            <a href="#home" aria-current="page">Home</a>
+            <span class="divider" aria-hidden="true">•</span>
+            <a href="#about">About</a>
+        </nav>
+    </header>
+    <section id="home">
     <div class="work">
         <div class="project">
             <h2><a href="https://github.com/eliahdim/GA_Game">Gymnasiearbete</a></h2>
@@ -17,29 +24,113 @@
         </div>
         <div class="project">
             <h2>IT-Kasino</h2>
-            <p>A digital casino project developed during my IT studies.</p>
+            <p>A digital casino project developed with my former classmates.</p>
             <img src="it-kasino.jpg" alt="IT-Kasino">
         </div>
         <div class="project">
-            <h2>Digitalt Skapande</h2>
-            <p>Creative digital projects exploring design and media.</p>
+            <h2>placeholder1</h2>
+            <p>Description for placeholder project.</p>
             <img src="digitalt-skapande.jpg" alt="Digitalt Skapande">
         </div>
         <div class="project">
-            <h2>AI Games</h2>
-            <p>Games developed using artificial intelligence techniques.</p>
+            <h2>placeholder2</h2>
+            <p>Description for placeholder project.</p>
             <img src="ai-games.jpg" alt="AI Games">
         </div>
         <div class="project">
-            <h2>Placeholder 1</h2>
-            <p>Description for the first placeholder project.</p>
+            <h2>placeholder3</h2>
+            <p>Description for placeholder project.</p>
             <img src="placeholder1.jpg" alt="Placeholder 1">
         </div>
         <div class="project">
-            <h2>Placeholder 2</h2>
-            <p>Description for the second placeholder project.</p>
+            <h2>placeholder4</h2>
+            <p>Description for placeholder project.</p>
             <img src="placeholder2.jpg" alt="Placeholder 2">
         </div>
     </div>
+    </section>
+    <script>
+        // Smooth scroll fallback for browsers that ignore CSS scroll-behavior
+    document.addEventListener('DOMContentLoaded', function () {
+        var links = document.querySelectorAll('a[href^="#"]');
+        links.forEach(function (link) {
+            link.addEventListener('click', function (e) {
+                var href = this.getAttribute('href');
+                if (!href || href === '#') return;
+                var targetSection = document.querySelector(href);
+                if (!targetSection) return;
+                e.preventDefault();
+
+                var header = document.querySelector('.site-header');
+                var headerHeight = header ? header.offsetHeight : 80;
+
+                var targetPosition = targetSection.offsetTop - headerHeight;
+                var startPosition = window.pageYOffset;
+                var distance = targetPosition - startPosition;
+                var duration = 800;
+                var start = null;
+
+                function easeInOutQuad(t) {
+                    return t < 0.5
+                        ? 2 * t * t
+                        : 1 - Math.pow(-2 * t + 2, 2) / 2;
+                } 
+
+                function step(timestamp) { 
+                    if (!start) start = timestamp;
+                    var progress = timestamp - start;
+                    var percentage = Math.min(progress / duration, 1);
+                    var eased = easeInOutQuad(percentage);
+                    var currentPosition = startPosition + distance * eased;
+                    window.scrollTo(0, currentPosition);
+                    if (percentage < 1) requestAnimationFrame(step);
+                }
+
+                requestAnimationFrame(step);
+            });
+        });
+    });
+    </script>
+
+    <section id="about" class="about">
+        <div class="about-container">
+            <section class="intro about-card">
+                <div class="about-photo">
+                    <img src="images/profile-icon.jpg" alt="Portrait of Eliah Dimmed">
+                </div>
+                <div class="about-details">
+                    <h2>About Me</h2>
+                    <p>My name is Eliah Bäckström Dimmed, and I am currently studying my fourth technical year at NTI in Helsingborg. I have a strong interest in IT, programming, and problem-solving, with hands-on experience in HTML, CSS, JavaScript, and C#.
+
+                        <br><br>I enjoy working on projects where I can combine structured thinking with creativity, and I am motivated by continuously learning and improving my skills. My goal is to build a solid foundation within the IT industry and grow as a developer, with a focus on web development and software solutions.</p>
+                    <ul class="facts">
+                        <li>Based in Sweden</li>
+                        <li>Interested in game development and AI</li>
+                        <li>Focus on performance and clean code</li>
+                    </ul>
+                </div>
+            </section>
+            <section class="contact-me about-card">
+                <h2>Contact me</h2>
+                <p>Feel free to reach out.</p>
+                <div class="contact-info">
+                    <div class="info-row">
+                        <span class="label">Email:</span>
+                        <a href="mailto:eliah@example.com">eliah.vilding@hotmail.se</a>
+                    </div>
+                    <div class="info-row">
+                        <span class="label">Phone:</span>
+                        <a href="tel:0708671587">070-867 15 87</a>
+                    </div>
+                </div>
+                <div class="contact-links">
+                    <a class="btn" href="https://github.com/eliahdim" target="_blank" rel="noopener">GitHub (Private)</a>
+                    <a class="btn" href="https://github.com/eliahdimmednti" target="_blank" rel="noopener">GitHub (Work)</a>
+                    <a class="btn" href="www.linkedin.com/in/eliah-dimmed-b23935333" target="_blank" rel="noopener">LinkedIn</a>
+                </div>
+            </section>
+        </div>
+    </section>
+    
 </body>
 </html>
