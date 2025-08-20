@@ -28,7 +28,7 @@ a:hover {
     top: 0;
     z-index: 50;
     backdrop-filter: blur(4px);
-    background: rgba(0, 0, 0, 0.14);
+    background: rgba(168, 54, 145, 0.14);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -70,6 +70,7 @@ h1 {
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
     border-radius: 15px;
     transition: transform 120ms ease, filter 120ms ease, box-shadow 120ms ease;
+    position: relative;
 }
 
 .work .project:hover {
@@ -79,9 +80,21 @@ h1 {
 }
 
 .work .project img {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
+    display: block;
+    z-index: 0;
+}
+
+.work .project h2,
+.work .project p {
+    position: relative;
+    z-index: 1;
 }
 
 .work .project .card-link {
@@ -172,7 +185,7 @@ section#about {
 .hero-inner {
     width: min(900px, 92%);
     margin: 0 auto;
-    background: rgba(141, 49, 121, 0.22);
+    background: rgba(141, 49, 121, 0.42);
     border: 1px solid rgba(255, 255, 255, 0.18);
     border-radius: 18px;
     padding: 24px 18px;
@@ -182,7 +195,8 @@ section#about {
 .hero h2 {
     margin: 0 0 8px;
     font-size: 40px;
-    background: linear-gradient(90deg, #ffffff, #d5c3ff 70%, #a884ff 90%);
+    background-color: white;
+    /*background: linear-gradient(90deg, #ffffff, #d5c3ff 100%, #a884ff 90%); */
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
